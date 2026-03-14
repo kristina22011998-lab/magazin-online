@@ -1,18 +1,24 @@
 .checkout-header {
-  height: 60px;
-  padding-left: 30px;
-  padding-right: 30px;
-  background-color: white;
+  background-color: #202036;
+  color: #ffffff;
+  padding-left: 15px;
+  padding-right: 15px;
 
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
 
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  height: 60px;
 }
+
+.header .left-section {
+  width: 208px;
+}
+
 
 .checkout-header .header-content {
   width: 100%;
@@ -35,10 +41,6 @@
   display: none;
 }
 
-/* @media is used to create responsive design (making the
-   website look good on any screen size). This @media
-   means when the screen width is 575px or less, different
-   styles (inside the {...}) will be applied. */
 @media (max-width: 575px) {
   .checkout-header .checkout-header-left-section {
     width: auto;
@@ -67,7 +69,7 @@
 }
 
 .checkout-header .return-to-home-link {
-  color: rgb(25, 135, 84);
+  color: rgb(255, 255, 255);
 
   text-decoration: none;
   cursor: pointer;

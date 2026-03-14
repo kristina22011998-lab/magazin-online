@@ -9,10 +9,11 @@ function App() {
     // path="/" isto sto i index
     <Routes>
       <Route index element={<HomePage />} />
-      {/* <Route path="orders" element={<OrdersPage />} />  */}
+
       <Route path="checkout" element={<CheckoutPage />} />
     </Routes>
   );
 }
 
 export default App;
+{/* <Route path="orders" element={<OrdersPage />} />  */}

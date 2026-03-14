@@ -2,14 +2,9 @@
   max-width: 1100px;
   padding-left: 30px;
   padding-right: 30px;
-
-  margin-top: 140px;
-  margin-bottom: 100px;
-
-  /* margin-left: auto;
-     margin-right auto;
-     Is a trick for centering an element horizontally
-     without needing a container. */
+  background-color: #0d0b27;
+  margin-top: 80px;
+  color: #ffffff;
   margin-left: auto;
   margin-right: auto;
 }
@@ -18,6 +13,7 @@
   font-weight: 700;
   font-size: 22px;
   margin-bottom: 18px;
+  color: #ffffff;
 }
 
 .checkout-page .checkout-grid {
@@ -44,7 +40,7 @@
 
 .checkout-page .cart-item-container,
 .checkout-page .payment-summary {
-  border: 1px solid rgb(222, 222, 222);
+  border: 1px solid #a29bfe;
   border-radius: 4px;
   padding: 18px;
 }
@@ -69,7 +65,7 @@
 }
 
 .checkout-page .delivery-date {
-  color: rgb(25, 135, 84);
+  color: rgb(255, 255, 255);
   font-weight: 700;
   font-size: 19px;
   margin-top: 5px;
@@ -117,6 +113,8 @@
 
 .checkout-page .product-quantity .link-primary {
   margin-left: 3px;
+  /* ---update i delete boja--- */
+  color: #a29bfe;
 }
 
 @media (max-width: 1000px) {
@@ -149,6 +147,7 @@
 .checkout-page .delivery-option-input {
   margin: 3px 5px 0px 0px;
   cursor: pointer;
+  outline: none;
 }
 
 .checkout-page .delivery-option-date {
@@ -158,7 +157,7 @@
 }
 
 .checkout-page .delivery-option-price {
-  color: rgb(120, 120, 120);
+  color: rgb(255, 255, 255);
   font-size: 15px;
 }
 
@@ -184,7 +183,7 @@
 }
 
 .checkout-page .subtotal-row .payment-summary-money {
-  border-top: 1px solid rgb(222, 222, 222);
+  border-top: 1px solid #a29bfe;
 }
 
 .checkout-page .subtotal-row div {
@@ -192,11 +191,12 @@
 }
 
 .checkout-page .total-row {
-  color: rgb(25, 135, 84);
+  /* ---boja cene--- */
+  color: rgb(255, 255, 255);
   font-weight: 700;
   font-size: 18px;
 
-  border-top: 1px solid rgb(222, 222, 222);
+  border-top: 1px solid #a29bfe;
   padding-top: 18px;
 }
 
@@ -204,8 +204,11 @@
   width: 100%;
   padding-top: 12px;
   padding-bottom: 12px;
+  
   border-radius: 5px;
-
+  background-color: #a29bfe;
+  border: 1px solid #241f6b; /* A slightly darker purple border for depth */
+  box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
   margin-top: 20px;
   margin-bottom: 19px;
 }

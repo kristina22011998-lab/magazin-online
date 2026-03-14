@@ -1,0 +1,192 @@
+.header {
+  background-color: #202036;
+  color: #36194d;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+}
+
+.header .left-section {
+  width: 208px;
+}
+
+@media (max-width: 800px) {
+  .header .left-section {
+    width: unset;
+  }
+}
+
+.header .header-link {
+  display: inline-block;
+  padding: 6px 9.5px;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.header .header-link:hover {
+  /* ---boja okvira klikom na el---- */
+  border: 1px solid #a29bfe;
+}
+
+.header .logo {
+  height: 26px;
+  margin-top: 1px;
+}
+
+.header .mobile-logo {
+  display: none;
+}
+
+@media (max-width: 675px) {
+  .header .logo {
+    display: none;
+  }
+
+  .header .mobile-logo {
+    display: block;
+    height: 26px;
+    margin-top: 1px;
+  }
+}
+
+.header .middle-section {
+  flex: 1;
+  max-width: 850px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+}
+
+.header .search-bar {
+  flex: 1;
+  width: 0;
+  font-size: 16px;
+  height: 28px;
+  padding-left: 10px;
+  border: none;
+   border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+
+  background-color: #a29bfe; /* A lighter version of your purple */
+  background-blend-mode: soft-light;
+  outline: none;
+  /* This creates the "glow" or lighting effect */
+  box-shadow: 0 0 15px #6c5ce7, inset 0 0 5px #ffffff;
+  transform: scale(0.98); /* Slight press effect */
+  
+}
+
+.header .search-button {
+  margin-left: 10px;        
+  /* ---gap--- */
+  background-color: #6c5ce7;
+  border: none;
+  width: 35px;
+  height: 30px;
+  
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  flex-shrink: 0;
+  transition: all 0.2s ease; /* Smooth transition for the "light" */
+  cursor: pointer;
+}
+
+/* The "Light Up" Effect when clicked */
+.header .search-button:active {
+  background-color: #a29bfe; /* A lighter version of your purple */
+  background-blend-mode: soft-light;
+  outline: none;
+  /* This creates the "glow" or lighting effect */
+  box-shadow: 0 0 15px #6c5ce7, inset 0 0 5px #ffffff;
+  transform: scale(0.98); /* Slight press effect */
+}
+
+.header .search-icon {
+  height: 20px;
+  margin-left: 0px;
+  margin-top: 3px;
+}
+
+.header .right-section {
+  width: 180px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: bottom end;
+}
+
+.header .orders-link {
+  /* ---velicina--- */
+  height: 20px;
+  width: 45px;
+
+  background-color: #a29bfe;
+  /* ---pop up efect---- */
+  /* border: none; */
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  color: white;
+  /* This creates the "glow" or lighting effect */
+  box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
+  display: flex;
+  /* ----pomeranje dole--- */
+  margin-top: 5px;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.header .orders-text {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.header .cart-link {
+  color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header .cart-icon {
+  width: 35px;
+  height: 30px;
+  /* ------!!!!! edit photo!!!!---- */
+  
+}
+
+.header .cart-text {
+  margin-left: 5px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.header .cart-quantity {
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 700;
+
+  position: absolute;
+  top: 8.5px;
+  right: 46px;
+
+  width: 26px;
+  text-align: center;
+}

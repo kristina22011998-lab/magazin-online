@@ -4,7 +4,8 @@
   margin-bottom: 100px;
   padding-left: 20px;
   padding-right: 20px;
-
+  background-color: rgb(21, 0, 39);
+  color: rgb(255, 255, 255);
   /* margin-left: auto;
      margin-right auto;
      Is a trick for centering an element horizontally
@@ -26,8 +27,9 @@
 }
 
 .orders-page .order-header {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(222, 222, 222);
+  background-color: #36194d;
+  border: 1px solid #a29bfe;
+  box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
 
   display: flex;
   align-items: center;
@@ -41,6 +43,7 @@
 .orders-page .order-header-left-section {
   display: flex;
   flex-shrink: 0;
+  color: #ffffff;
 }
 
 .orders-page .order-header-label {
@@ -87,10 +90,11 @@
 
 .orders-page .order-details-grid {
   padding: 40px 25px;
-  border: 1px solid rgb(222, 222, 222);
+  border: 1px solid #a29bfe;
   border-top: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
 
   display: grid;
   grid-template-columns: 110px 1fr 220px;
@@ -139,7 +143,11 @@
   font-size: 14px;
   width: 140px;
   height: 36px;
+ /* ----boja, senka, sjaj gumeta add to cart--- */
   border-radius: 5px;
+  background-color: #a29bfe;
+  box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
+  color: #ffffff;
 
   display: flex;
   align-items: center;
@@ -159,6 +167,10 @@
   width: 100%;
   font-size: 14px;
   padding: 8px;
+  border-radius: 5px;
+  background-color: #a29bfe;
+  box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
+  color: #ffffff;
 }
 
 @media (max-width: 800px) {

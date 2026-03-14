@@ -1,9 +1,17 @@
 .tracking-page {
-  max-width: 850px;
+  max-width: 940px;
   margin-top: 90px;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
   margin-bottom: 100px;
   padding-left: 30px;
   padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgb(21, 0, 39);
+  color: rgb(255, 255, 255);
 
   /* margin-left: auto;
      margin-right auto;
@@ -16,6 +24,7 @@
 .tracking-page .back-to-orders-link {
   display: inline-block;
   margin-bottom: 30px;
+  color: rgb(255, 255, 255);
 }
 
 .tracking-page .delivery-date {
@@ -44,7 +53,7 @@
 }
 
 .tracking-page .current-status {
-  color: rgb(25, 135, 84);
+  color: #ffffff;
 }
 
 @media (max-width: 575px) {
@@ -75,7 +84,8 @@
 
 .tracking-page .progress-bar {
   height: 100%;
-  background-color: rgb(25, 135, 84);
+  background-color: #a29bfe;
+  box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
   border-radius: 50px;
-  width: 50%;
+  width: 10%;
 }

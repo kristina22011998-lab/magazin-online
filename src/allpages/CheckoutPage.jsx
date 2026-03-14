@@ -40,14 +40,14 @@ export function CheckoutPage() {
 
             <div className="cart-item-details-grid">
               <img className="product-image"
-                src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+                src="images/products/RE2RE.png" />
 
               <div className="cart-item-details">
                 <div className="product-name">
-                  Black and Gray Athletic Cotton Socks - 6 Pairs
+                  Resident Evil 2 Remake
                 </div>
                 <div className="product-price">
-                  $10.90
+                  $80
                 </div>
                 <div className="product-quantity">
                   <span>
@@ -116,14 +116,14 @@ export function CheckoutPage() {
 
             <div className="cart-item-details-grid">
               <img className="product-image"
-                src="images/products/intermediate-composite-basketball.jpg" />
+                src="images/products/RE3.jpg" />
 
               <div className="cart-item-details">
                 <div className="product-name">
-                  Intermediate Size Basketball
+                  Resident Evil 3 Remake
                 </div>
                 <div className="product-price">
-                  $20.95
+                  $69.99
                 </div>
                 <div className="product-quantity">
                   <span>

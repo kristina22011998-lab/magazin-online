@@ -1,0 +1,23 @@
+/* Light theme */
+.light {
+  --background: #ffffff;
+  --text: #000000;
+}
+
+/* Dark theme */
+.dark {
+  --background: #1e1e1e;
+  --text: #ffffff;
+}
+
+body {
+  margin: 0;
+}
+
+.light,
+.dark {
+  background-color: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}

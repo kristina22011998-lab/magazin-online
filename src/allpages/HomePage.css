@@ -1,8 +1,8 @@
 .home-page {
-  margin-top: 60px;
   background-color: #0d0b27;
   min-height: 100vh;
   width: 100%;
+  color: aliceblue;
 }
 
 .home-page .products-grid {
@@ -120,13 +120,14 @@
 
 
 .home-page .product-quantity-container {
-  
-  display: flex;        
-  flex-direction: row;  
-  align-items: center;    
-  gap: 5px;            
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  gap: 10px;
   margin-top: 1px;
-  /* Add these two lines */
+  margin-left: -5px;
+  
   position: relative;
   z-index: 1;
 }
@@ -134,8 +135,6 @@
 .home-page .product-quantity-container select {
   background-color: #a29bfe;
   color: white;              
-  
-  border: none;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   border-top-right-radius: 25px;
@@ -170,6 +169,10 @@ border: 1px solid #a29bfe; /* A slightly darker purple border for depth */
   width: 50%;
 /* ---centriranje--- */
   align-self: center;
+
+  white-space: nowrap;
+
+
   height: 30px;
   width: 50%;
   margin-left: 12px;

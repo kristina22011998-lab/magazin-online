@@ -7,7 +7,7 @@ export function HomePage({ cart, setCart, notify }) {
 const [quantities, setQuantities] = useState({});
   const [sortOption, setSortOption] = useState("default");
   const [minRating, setMinRating] = useState(0);
-
+  const [searchQuery, setSearchQuery] = useState("");
   
   const totalItemsInCart = cart.reduce((sum, item) => sum + item.quantity, 0);
   const handleQuantityChange = (productId, value) => {
@@ -46,12 +46,17 @@ const [quantities, setQuantities] = useState({});
 
 let visibleProducts = [...products];
 
-// filter
+// ...search Bar...
+visibleProducts = visibleProducts.filter((product) =>
+product.name.toLowerCase().includes(searchQuery.toLowerCase())
+);
+console.log(searchQuery)
+// filter stars
 visibleProducts = visibleProducts.filter(
   (product) => product.rating.stars >= minRating
 );
 
-// sort
+// sort za default
 if (sortOption === "price-low-high") {
   visibleProducts.sort((a, b) => a.priceCents - b.priceCents);
 }
@@ -68,7 +73,10 @@ if (sortOption === "rating") {
 
   return (
     <>
-      <Header cartCount={totalItemsInCart} />
+      <Header cartCount={totalItemsInCart} 
+      searchQuery={searchQuery}
+      setSearchQuery={setSearchQuery}
+      />
       <div className="home-page">
 
 <div className="controls">

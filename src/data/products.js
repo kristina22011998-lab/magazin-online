@@ -8,7 +8,7 @@ export const products = [
       count: 125
     },
     priceCents: 4990,
-    keywords: ["game", "residentevil", "remake"]
+    keywords: ["game", "resident evil 2", "remake","resident evil 2 remake"]
   },
   {
     id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
@@ -19,7 +19,7 @@ export const products = [
       count: 76
     },
     priceCents: 3999,
-    keywords: ["game", "residentevil", "remake"]
+    keywords: ["game", "resident evil 2", "remake", "resident evil 3 remake"]
   },
 
   // ----MY FAVORITE----
@@ -32,7 +32,7 @@ export const products = [
       count: 796
     },
     priceCents: 2999,
-    keywords: ["game", "residentevil", "original"]
+    keywords: ["best game", "resident evil 4", "original"]
   },
   {
     id: "54e0eccd-8f36-462b-b68a-8182611d9add",
@@ -43,7 +43,7 @@ export const products = [
       count: 497
     },
     priceCents: 4999,
-    keywords: ["game", "residentevil", "remake"]
+    keywords: ["game", "resident evil 4 remake", "remake", "resident evil 4"]
   },
   {
     id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
@@ -54,18 +54,18 @@ export const products = [
       count: 37
     },
     priceCents: 1999,
-    keywords: ["game", "residentevil"]
+    keywords: ["gold edition", "resident evil 5"]
   },
   {
     id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
     image: "images/products/RE6b.jpg",
     name: "Resident Evil 6",
     rating: {
-      stars: 4.5,
+      stars: 2.5,
       count: 175
     },
     priceCents: 1999,
-    keywords: ["game", "residentevil6"]
+    keywords: ["game", "resident evil 6"]
   },
   {
     id: "dd82ca78-a18b-4e2a-9250-31e67412f98d",
@@ -76,7 +76,7 @@ export const products = [
       count: 317
     },
     priceCents: 3999,
-    keywords: ["bioharazad","game", "residentevil7"]
+    keywords: ["bioharazad","game", "resident evil 7"]
   },
  
   {
@@ -88,7 +88,7 @@ export const products = [
       count: 199
     },
     priceCents: 3999,
-    keywords: ["game", "residentevil8", "viii", "dimitrescu"]
+    keywords: ["game", "resident evil 8", "viii", "dimitrescu", "resident evil viii"]
   },
   {
     id: "5968897c-4d27-4872-89f6-5bcb052746d7",
@@ -99,7 +99,7 @@ export const products = [
       count: 685
     },
     priceCents: 6999,
-    keywords: ["game", "residentevil9","requiem"]
+    keywords: ["game", "resident evil 9", "requiem", "resident evil requiem"]
   
   },
 
@@ -115,7 +115,7 @@ export const products = [
       count: 430
     },
     priceCents: 1999,
-    keywords: ["gta 4", "grand theft auto"]
+    keywords: ["gta 4", "grand theft auto 4", "grand theft auto IV", "grand theft auto"]
   },
   {
     id: "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
@@ -126,7 +126,7 @@ export const products = [
       count: 2232
     },
     priceCents: 2999,
-    keywords: ["gta5", "grand theft auto 5"]
+    keywords: ["gta5", "grand theft auto 5","gta"]
   },
   {
     id: "82bb68d7-ebc9-476a-989c-c78a40ee5cd9",
@@ -137,7 +137,7 @@ export const products = [
       count: 0
     },
     priceCents: 9999,
-    keywords: ["gta 6", "grand theft auto"]
+    keywords: ["gta 6", "grand theft auto VI", "grand theft auto 6","grand theft auto"]
   },
   {
     id: "c2a82c5e-aff4-435f-9975-517cfaba2ece",
@@ -148,7 +148,7 @@ export const products = [
       count: 846
     },
     priceCents: 4999,
-    keywords: ["game", "rdr1", "red dead redemption"]
+    keywords: ["game", "rdr1", "red dead redemption", "cowboy"]
   },
   {
     id: "b86ddc8b-3501-4b17-9889-a3bad6fb585f",
@@ -159,7 +159,7 @@ export const products = [
       count: 1270
     },
     priceCents: 5999,
-    keywords: ["gtasanandreas", "san andreas", "gta", "trilogy", "grand theft auto"]
+    keywords: ["best game", "gta san andreas", "san andreas", "gta", "trilogy", "grand theft auto"]
   },
   {
     id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
@@ -170,7 +170,7 @@ export const products = [
       count: 1971
     },
     priceCents: 5999,
-    keywords: ["game", "rdr2", "red dead redemption II", "red dead redemption 2"]
+    keywords: ["best game", "rdr2", "red dead redemption II", "red dead redemption 2"]
   },
 
   //  -----UBISOFT------

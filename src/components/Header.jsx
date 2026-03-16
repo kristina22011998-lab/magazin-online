@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import './header.css';
 
-export function Header({ cartCount }) {
+export function Header({ cartCount, searchQuery, setSearchQuery }) {
   
   return (
     <div className="header">
@@ -13,10 +13,13 @@ export function Header({ cartCount }) {
       </div>
 
       <div className="middle-section">
-        <input className="search-bar" type="text" placeholder="Search" />
+        <input className="search-bar" type="text" placeholder="Search" 
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)} />
 
         <button className="search-button">
           <img className="search-icon" src="images/icons/search-icon.png" />
+         
         </button>
       </div>
 

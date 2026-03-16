@@ -4,8 +4,12 @@ import { products } from "../data/products.js";
 import "./HomePage.css";
 
 export function HomePage({ cart, setCart, notify }) {
-  const [quantities, setQuantities] = useState({});
+const [quantities, setQuantities] = useState({});
+  const [sortOption, setSortOption] = useState("default");
+  const [minRating, setMinRating] = useState(0);
 
+  
+  const totalItemsInCart = cart.reduce((sum, item) => sum + item.quantity, 0);
   const handleQuantityChange = (productId, value) => {
     setQuantities((prev) => ({
       ...prev,
@@ -40,12 +44,60 @@ export function HomePage({ cart, setCart, notify }) {
     notify();
   };
 
+let visibleProducts = [...products];
+
+// filter
+visibleProducts = visibleProducts.filter(
+  (product) => product.rating.stars >= minRating
+);
+
+// sort
+if (sortOption === "price-low-high") {
+  visibleProducts.sort((a, b) => a.priceCents - b.priceCents);
+}
+
+if (sortOption === "price-high-low") {
+  visibleProducts.sort((a, b) => b.priceCents - a.priceCents);
+}
+
+if (sortOption === "rating") {
+  visibleProducts.sort((a, b) => b.rating.stars - a.rating.stars);
+}
+
+
+
   return (
     <>
-      <Header />
+      <Header cartCount={totalItemsInCart} />
       <div className="home-page">
+
+<div className="controls">
+
+  <label>Sort:</label>
+  <select
+    value={sortOption}
+    onChange={(e) => setSortOption(e.target.value)}
+  >
+    <option value="default">Default</option>
+    <option value="price-low-high">Price: Low → High</option>
+    <option value="price-high-low">Price: High → Low</option>
+    <option value="rating">Best Rating</option>
+  </select>
+
+  <label>Rating:</label>
+  <select
+    value={minRating}
+    onChange={(e) => setMinRating(Number(e.target.value))}
+  >
+    <option value="0">All</option>
+    <option value="4">4★</option>
+    <option value="3">3★</option>
+  </select>
+
+</div>
+
         <div className="products-grid">
-          {products.map((product) => (
+          {visibleProducts.map((product) => (
             <div key={product.id} className="product-container">
               <div className="product-image-container">
                 <img className="product-image" src={product.image} alt={product.name} />

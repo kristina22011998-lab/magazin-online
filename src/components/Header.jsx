@@ -1,14 +1,14 @@
 import { Link } from 'react-router';
 import './header.css';
 
-export function Header() {
+export function Header({ cartCount }) {
+  
   return (
     <div className="header">
       <div className="left-section">
         <Link to="/" className="header-link">
           <img className="logo" src="images/logo.png" />
-          {/* <img className="mobile-logo"
-            src="images/mobile-logo-white.png" /> */}
+        
         </Link>
       </div>
 
@@ -28,7 +28,9 @@ export function Header() {
         {/* < NavLink className="cart-link header-link" to="checkout"> */}
         <Link className="cart-link header-link" to="/checkout">
           <img className="cart-icon" src="images/icons/cart-icon.png" />
-          <div className="cart-quantity">3</div>
+          {cartCount > 0 && (
+            <div className="cart-quantity">{cartCount}</div>
+            )}
           <div className="cart-text">Cart</div>
         </Link>
       </div>

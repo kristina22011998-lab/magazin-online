@@ -1,8 +1,31 @@
 import './checkout-header.css'; 
 import './CheckoutPage.css'
-        
+import React from "react";
+ 
 
-export function CheckoutPage() {
+export function CheckoutPage({cart, setCart }) {
+
+  const increaseQuantity = (id) => {
+    setCart(cart.map(item => item.id === id ? {...item, quantity: item.quantity + 1 } : item));
+      };
+
+    const decreaseQuantity = (id) => {
+      setCart(cart 
+        .map(item => item.id === id ? { ...item, quantity: item.quantity - 1 } : item)
+        .filter (item => item.quantity > 0)
+      );
+    };
+
+    const deleteGame = (id) => {
+      setCart(cart.filter(item => item.id !== id ));
+    };
+
+    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const placeOrder = () => {
+      alert("Order placed successfully!");
+      setCart([]);
+    };
+
   return (
     <>
 
@@ -11,15 +34,14 @@ export function CheckoutPage() {
     <div className="checkout-header">
       <div className="header-content">
         <div className="checkout-header-left-section">
-          <a href="/">
+          {/* ...link to... */}
+          <a href="/">   
             <img className="logo" src="images/logo.png" />
-            <img className="mobile-logo" src="images/mobile-logo.png" />
           </a>
         </div>
 
         <div className="checkout-header-middle-section">
-          Checkout (<a className="return-to-home-link"
-            href="/">3 items</a>)
+          Checkout (<a className="return-to-home-link" href="/">{cart.lenght} items</a>)
         </div>
 
         <div className="checkout-header-right-section">
@@ -29,197 +51,45 @@ export function CheckoutPage() {
     </div>
 
     <div className="checkout-page">
+      {cart.lenght === 0 ? (
+
+      <p>Your cart is empty</p>
+      ) : (
+
+          cart.map(item => (
+            <div key={item.id}>
+              <img src={item.image} width="100" />
+              <div>{item.name}</div>
+            <div>${item.price}</div>
+            <div>Quantity: {item.quantity}</div>
+
+            <button onClick={() => increaseQuantity(item.id)}>+</button>
+            <button onClick={() => decreaseQuantity(item.id)}>-</button>
+            <button onClick={() => deleteGame(item.id)}>Delete</button>
+            </div>
+          ))
+      )}
+
       <div className="page-title">Review your order</div>
 
       <div className="checkout-grid">
-        <div className="order-summary">
-          <div className="cart-item-container">
-            <div className="delivery-date">
-              Delivery date: Tuesday, June 21
-            </div>
-
-            <div className="cart-item-details-grid">
-              <img className="product-image"
-                src="images/products/RE2RE.png" />
-
-              <div className="cart-item-details">
-                <div className="product-name">
-                  Resident Evil 2 Remake
-                </div>
-                <div className="product-price">
-                  $80
-                </div>
-                <div className="product-quantity">
-                  <span>
-                    Quantity: <span className="quantity-label">2</span>
-                  </span>
-                  <span className="update-quantity-link link-primary">
-                    Update
-                  </span>
-                  <span className="delete-quantity-link link-primary">
-                    Delete
-                  </span>
-                </div>
-              </div>
-
-              <div className="delivery-options">
-                <div className="delivery-options-title">
-                  Choose a delivery option:
-                </div>
-                <div className="delivery-option">
-                  <input type="radio" checked
-                    className="delivery-option-input"
-                    name="delivery-option-1" />
-                  <div>
-                    <div className="delivery-option-date">
-                      Tuesday, June 21
-                    </div>
-                    <div className="delivery-option-price">
-                      FREE Shipping
-                    </div>
-                  </div>
-                </div>
-                <div className="delivery-option">
-                  <input type="radio"
-                    className="delivery-option-input"
-                    name="delivery-option-1" />
-                  <div>
-                    <div className="delivery-option-date">
-                      Wednesday, June 15
-                    </div>
-                    <div className="delivery-option-price">
-                      $4.99 - Shipping
-                    </div>
-                  </div>
-                </div>
-                <div className="delivery-option">
-                  <input type="radio"
-                    className="delivery-option-input"
-                    name="delivery-option-1" />
-                  <div>
-                    <div className="delivery-option-date">
-                      Monday, June 13
-                    </div>
-                    <div className="delivery-option-price">
-                      $9.99 - Shipping
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="cart-item-container">
-            <div className="delivery-date">
-              Delivery date: Wednesday, June 15
-            </div>
-
-            <div className="cart-item-details-grid">
-              <img className="product-image"
-                src="images/products/RE3.jpg" />
-
-              <div className="cart-item-details">
-                <div className="product-name">
-                  Resident Evil 3 Remake
-                </div>
-                <div className="product-price">
-                  $69.99
-                </div>
-                <div className="product-quantity">
-                  <span>
-                    Quantity: <span className="quantity-label">1</span>
-                  </span>
-                  <span className="update-quantity-link link-primary">
-                    Update
-                  </span>
-                  <span className="delete-quantity-link link-primary">
-                    Delete
-                  </span>
-                </div>
-              </div>
-
-              <div className="delivery-options">
-                <div className="delivery-options-title">
-                  Choose a delivery option:
-                </div>
-
-                <div className="delivery-option">
-                  <input type="radio" className="delivery-option-input"
-                    name="delivery-option-2" />
-                  <div>
-                    <div className="delivery-option-date">
-                      Tuesday, June 21
-                    </div>
-                    <div className="delivery-option-price">
-                      FREE Shipping
-                    </div>
-                  </div>
-                </div>
-                <div className="delivery-option">
-                  <input type="radio" checked className="delivery-option-input"
-                    name="delivery-option-2" />
-                  <div>
-                    <div className="delivery-option-date">
-                      Wednesday, June 15
-                    </div>
-                    <div className="delivery-option-price">
-                      $4.99 - Shipping
-                    </div>
-                  </div>
-                </div>
-                <div className="delivery-option">
-                  <input type="radio" className="delivery-option-input"
-                    name="delivery-option-2" />
-                  <div>
-                    <div className="delivery-option-date">
-                      Monday, June 13
-                    </div>
-                    <div className="delivery-option-price">
-                      $9.99 - Shipping
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div className="payment-summary">
-            <div className="payment-summary-title">
-              Payment Summary
-            </div>
-
-            <div className="payment-summary-row">
-              <div>Items (3):</div>
-              <div className="payment-summary-money">$42.75</div>
-            </div>
-
-            <div className="payment-summary-row">
-              <div>Shipping &amp; handling:</div>
-              <div className="payment-summary-money">$4.99</div>
-            </div>
-
-            <div className="payment-summary-row subtotal-row">
-              <div>Total before tax:</div>
-              <div className="payment-summary-money">$47.74</div>
-            </div>
-
-            <div className="payment-summary-row">
-              <div>Estimated tax (10%):</div>
-              <div className="payment-summary-money">$4.77</div>
-            </div>
+          <div className="payment-summary-title">
+            Payment Summary </div>
 
             <div className="payment-summary-row total-row">
-              <div>Order total:</div>
-              <div className="payment-summary-money">$52.51</div>
+              <div>Order total: ${totalPrice.toFixed(2)}</div>
             </div>
 
-            <button className="place-order-button button-primary">
-              Place your order
-            </button>
-        </div>
-      </div>
-    </div>
-</>
+          <button
+          className="place-order-button button-primary"
+          onClick={placeOrder}
+          >
+            Place your order 💙
+          </button>
+          </div>
+          </div>
+          </div>
+          </>
   )
 }

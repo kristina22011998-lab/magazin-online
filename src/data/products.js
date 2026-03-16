@@ -48,7 +48,7 @@ export const products = [
   {
     id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
     image: "images/products/RE5.jpg",
-    name: "Resident Evil 5",
+    name: "Resident Evil 5: Gold Edition",
     rating: {
       stars: 4,
       count: 37
@@ -105,17 +105,7 @@ export const products = [
 
   // -----ROCKSTAR GAMES-----
 
-  {
-    id: "b86ddc8b-3501-4b17-9889-a3bad6fb585f",
-    image: "images/products/gta sa.jpg",
-    name: "Grand Theft Auto: San Andreas",
-    rating: {
-      stars: 5,
-      count: 1270
-    },
-    priceCents: 5999,
-    keywords: ["gtasanandreas", "san andreas", "gta", "trilogy", "grand theft auto"]
-  },
+  
   {
     id: "aad29d11-ea98-41ee-9285-b916638cac4a",
     image: "images/products/GTA IV.jpg",
@@ -159,6 +149,17 @@ export const products = [
     },
     priceCents: 4999,
     keywords: ["game", "rdr1", "red dead redemption"]
+  },
+  {
+    id: "b86ddc8b-3501-4b17-9889-a3bad6fb585f",
+    image: "images/products/gta sa.jpg",
+    name: "Grand Theft Auto: San Andreas",
+    rating: {
+      stars: 5,
+      count: 1270
+    },
+    priceCents: 5999,
+    keywords: ["gtasanandreas", "san andreas", "gta", "trilogy", "grand theft auto"]
   },
   {
     id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",

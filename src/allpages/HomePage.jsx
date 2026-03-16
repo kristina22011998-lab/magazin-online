@@ -1,68 +1,98 @@
-import { NavLink } from "react-router";
-import { Header } from "../components/Header";
+import React, { useState } from "react";
+import { Header } from "../components/Header.jsx";
+import { products } from "../data/products.js";
 import "./HomePage.css";
-import { products } from "../data/products";
 
-export function HomePage() {
+export function HomePage({ cart, setCart, notify }) {
+  const [quantities, setQuantities] = useState({});
+
+  const handleQuantityChange = (productId, value) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [productId]: Number(value),
+    }));
+  };
+
+  const addToCart = (product) => {
+    const quantity = quantities[product.id] || 1;
+
+    setCart((prevCart) => {
+      const existing = prevCart.find((item) => item.id === product.id);
+      if (existing) {
+        return prevCart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+      }
+      return [
+        ...prevCart,
+        {
+          id: product.id,
+          name: product.name,
+          price: product.priceCents / 100,
+          image: product.image,
+          quantity: quantity,
+        },
+      ];
+    });
+
+    notify();
+  };
+
   return (
     <>
       <Header />
-
-      <title>Game Girl</title>
-
       <div className="home-page">
         <div className="products-grid">
-          {products.map((product) => {
-            return (
-              <div key={product.id} className="product-container">
-                <div className="product-image-container">
-                  <img className="product-image" 
-                  src={product.image} />
-                </div>
-
-                <div className="product-name limit-text-to-2-lines">
-                  {product.name}
-                </div>
-
-                <div className="product-rating-container">
-                  <img className="product-rating-stars"
-                    src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
-                  <div className="product-rating-count link-primary">
-                    {product.rating.count}
-                  </div>
-                </div>
-
-                <div className="product-price">
-                  ${(product.priceCents / 100).toFixed(2)}
-                </div>
-
-                <div className="product-quantity-container">
-                  <select>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-
-                  <div className="product-spacer"></div>
-
-                  <div className="added-to-cart">
-                    <img src="images/icons/checkmark.png" />
-                    Added
-                  </div>
-                </div>
-                <button className="add-to-cart-button button-primary">
-                  Add to Cart
-                </button>
+          {products.map((product) => (
+            <div key={product.id} className="product-container">
+              <div className="product-image-container">
+                <img className="product-image" src={product.image} alt={product.name} />
               </div>
-            );
-          })}
+
+              <div className="product-name limit-text-to-2-lines">
+                {product.name}
+              </div>
+
+              <div className="product-rating-container">
+                <img
+                  className="product-rating-stars"
+                  src={`images/ratings/rating-${product.rating.stars * 10}.png`}
+                  alt={`${product.rating.stars} stars`}
+                />
+                <div className="product-rating-count link-primary">
+                  {product.rating.count}
+                </div>
+              </div>
+
+              <div className="product-price">
+                ${(product.priceCents / 100).toFixed(2)}
+              </div>
+
+              <div className="product-quantity-wrapper">
+                <select
+                  value={quantities[product.id] || 1}
+                  onChange={(e) =>
+                    handleQuantityChange(product.id, e.target.value)
+                  }
+                >
+                  {[...Array(10)].map((_, i) => (
+                    <option key={i + 1} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <button
+                className="add-to-cart-button button-primary"
+                onClick={() => addToCart(product)}
+              >
+                Add to Cart
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </>

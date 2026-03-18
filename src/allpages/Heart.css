@@ -1,0 +1,12 @@
+.floating-heart {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  font-size: 18px;
+  animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-150px); }
+}

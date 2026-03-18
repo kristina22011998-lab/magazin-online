@@ -4,36 +4,91 @@ import { HomePage } from "./allpages/HomePage";
 import { CheckoutPage } from "./allpages/CheckoutPage";
 import { OrdersPage } from "./allpages/OrdersPage";
 import { TrackingPage } from "./allpages/TrackingPage";
+import { Header } from "./components/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
-function App() {
-  
+export default function App() {
+  const [theme, setTheme] = useState("dark"); // default theme
+  const [searchQuery, setSearchQuery] = useState(""); // search state
+ 
+  // CART
   const [cart, setCart] = useState(() => {
     const stored = localStorage.getItem("cart");
     return stored ? JSON.parse(stored) : [];
   });
 
+  // ORDERS
+  const [orders, setOrders] = useState(() => {
+    const stored = localStorage.getItem("orders");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  // Save cart and orders to localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+    localStorage.setItem("orders", JSON.stringify(orders));
+  }, [cart, orders]);
+
+  const toggleTheme = () => setTheme((prev) => (prev === "dark" ? "light" : "dark"));
 
   const notify = () => toast.success("Successfully added to cart!");
 
   return (
-    <>
+    <div className={`app ${theme}-theme`}>
+      {/* Theme toggle button */}
+      <button className="theme-toggle" onClick={toggleTheme}>
+        {theme === "dark" ? "🌞" : "🌙"}
+      </button>
+
+      {/* Header */}
+      <Header
+        cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
+
+      {/* Toast notifications */}
       <ToastContainer position="top-right" autoClose={1000} />
 
+      {/* Routes */}
       <Routes>
-        <Route index element={<HomePage cart={cart} setCart={setCart} notify={notify} />}
+        <Route
+          index
+          element={
+            <HomePage
+              cart={cart}
+              setCart={setCart}
+              notify={notify}
+              theme={theme}
+              toggleTheme={toggleTheme}
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+            />
+          }
         />
-        <Route path="checkout" element={<CheckoutPage cart={cart} setCart={setCart} />} />
-        <Route path="orders" element={<OrdersPage />} />
+        <Route
+          path="checkout"
+          element={
+            <CheckoutPage
+              cart={cart}
+              setCart={setCart}
+              orders={orders}
+              setOrders={setOrders}
+              notify={notify}
+            />
+          }
+        />
+        <Route
+  path="orders"
+  element={<OrdersPage orders={orders} setOrders={setOrders} cart={cart} setCart={setCart} notify={notify} theme={theme}
+      toggleTheme={toggleTheme} />}
+/>
         <Route path="tracking" element={<TrackingPage />} />
       </Routes>
-    </>
+    </div>
   );
 }
-
-export default App;

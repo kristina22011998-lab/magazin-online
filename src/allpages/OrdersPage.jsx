@@ -1,180 +1,102 @@
-import { Link } from 'react-router'
-import { Header } from '../components/Header'
-import './OrdersPage.css'
+import { Link } from 'react-router';
+import { Header } from '../components/Header';
+import './OrdersPage.css';
 
-export function OrdersPage() {
- return (
- <>
-<title>Orders</title>
- <Header />
- <div className="header">
-      <div className="left-section">
-        <Link to="/" className="header-link">
-          <img className="logo"
-            src="images/logo.png" />
-          {/* <img className="mobile-logo"
-            src="images/mobile-logo-white.png" /> */}
-        </Link>
-      </div>
+export function OrdersPage({ orders, setOrders, theme, toggleTheme, cart, setCart, notify }) {
+const handleCancelOrder = (orderId) => {
+    const updatedOrders = orders.filter(order => order.id !== orderId);
+    setOrders(updatedOrders);
+    const handleCancelOrder = (orderId) => {
+      const updatedOrders = orders.filter(order => order.id !== orderId);
+      setOrders(updatedOrders);
+      localStorage.setItem('orders', JSON.stringify(updatedOrders));
+      if (notify) notify("Order cancelled successfully!")
+};
+}
+  return (
+    <>
+      <Header
+        cartCount={cart ? cart.reduce((sum, item) => sum + item.quantity, 0) : 0}
+        searchQuery=""        // optional, if search not needed here
+        setSearchQuery={() => {}}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
+<button 
+            className="cancel-button"
+            onClick={() => handleCancelOrder(order.id)}
+          >
+            Cancel Order
+          </button>
+      <div className="orders-page">
+        <div className="page-title">Your Orders</div>
 
-      <div className="middle-section">
-        <input className="search-bar" type="text" placeholder="Search" />
+        {orders.length === 0 && <div>No orders yet.</div>}
 
-        <button className="search-button">
-          <img className="search-icon" src="images/icons/search-icon.png" />
-        </button>
-      </div>
-
-      <div className="right-section">
-        <Link className="orders-link header-link" to="/orders">
-
-          <span className="orders-text">Orders</span>
-        </Link>
-
-        <Link className="cart-link header-link" to="/checkout">
-          <img className="cart-icon" src="images/icons/cart-icon.png" />
-          <div className="cart-quantity">3</div>
-          <div className="cart-text">Cart</div>
-        </Link>
-      </div>
-    </div>
-
-    <div className="orders-page">
-      <div className="page-title">Your Orders</div>
-
-      <div className="orders-grid">
-        <div className="order-container">
-
-          <div className="order-header">
-            <div className="order-header-left-section">
-              <div className="order-date">
-                <div className="order-header-label">Order Placed:</div>
-                <div>August 12</div>
+        {orders.map((order) => (
+          <div key={order.id} className="order-container">
+            <div className="order-header">
+              <div className="order-header-left-section">
+                <div className="order-date">
+                  <div className="order-header-label">Order Placed:</div>
+                  <div>{order.date}</div>
+                </div>
+                <div className="order-total">
+                  <div className="order-header-label">Total:</div>
+                  <div>${order.total.toFixed(2)}</div>
+                </div>
               </div>
-              <div className="order-total">
-                <div className="order-header-label">Total:</div>
-                <div>$35.06</div>
+
+              <div className="order-header-right-section">
+                <div className="order-header-label">Order ID:</div>
+                <div>{order.id}</div>
               </div>
             </div>
 
-            <div className="order-header-right-section">
-              <div className="order-header-label">Order ID:</div>
-              <div>27cba69d-4c3d-4098-b42d-ac7fa62b7664</div>
-            </div>
-          </div>
-
-          <div className="order-details-grid">
-            <div className="product-image-container">
-              <img src="images/products/RE2RE.png" />
-            </div>
-
-            <div className="product-details">
-              <div className="product-name">
-                Resident Evil 2 Remake
-              </div>
-              <div className="product-delivery-date">
-                Arriving on: August 15
-              </div>
-              <div className="product-quantity">
-                Quantity: 1
-              </div>
-              <button className="buy-again-button button-primary">
-                <img className="buy-again-icon" src="images/icons/buy-again.png" />
-                <span className="buy-again-message">Add to Cart</span>
-              </button>
-            </div>
-
-            <div className="product-actions">
-              <a href="/tracking">
-                <button className="track-package-button button-secondary">
-                  Track package
+{/* --- CANCEL BUTTON ADDED HERE --- */}
+                <button 
+                  className="cancel-button" 
+                  onClick={() => handleCancelOrder(order.id)}
+                >
+                  Cancel Order
                 </button>
-              </a>
-            </div>
+              
+            
 
-            <div className="product-image-container">
-              <img src="images/products/RE3.jpg" />
-            </div>
+            <div className="order-details-grid">
+              {order.items.map((item) => (
+                <div key={item.id} className="order-item">
+                  <div className="product-image-container">
+                    <img src={item.image} alt={item.name} />
+                  </div>
 
-            <div className="product-details">
-              <div className="product-name">
-                Resident Evil 3 Remake
-              </div>
-              <div className="product-delivery-date">
-                Arriving on: August 19
-              </div>
-              <div className="product-quantity">
-                Quantity: 2
-              </div>
-              <button className="buy-again-button button-primary">
-                <img className="buy-again-icon" src="images/icons/buy-again.png" />
-                <span className="buy-again-message">Add to Cart</span>
-              </button>
-            </div>
+                  <div className="product-details">
+                    <div className="product-name">{item.name}</div>
+                    <div className="product-quantity">Quantity: {item.quantity}</div>
+                    <button
+                      className="buy-again-button button-primary"
+                      onClick={() => {
+                        setCart((prev) => [...prev, item]);
+                        notify();
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
 
-            <div className="product-actions">
-              <a href="/tracking">
-                <button className="track-package-button button-secondary">
-                  Track package
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="order-container">
-
-          <div className="order-header">
-            <div className="order-header-left-section">
-              <div className="order-date">
-                <div className="order-header-label">Order Placed:</div>
-                <div>June 10</div>
-              </div>
-              <div className="order-total">
-                <div className="order-header-label">Total:</div>
-                <div>$41.90</div>
-              </div>
-            </div>
-
-            <div className="order-header-right-section">
-              <div className="order-header-label">Order ID:</div>
-              <div>b6b6c212-d30e-4d4a-805d-90b52ce6b37d</div>
+                  <div className="product-actions">
+                    <Link to="/tracking">
+                      <button className="track-package-button button-secondary">
+                        Track package
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-
-          <div className="order-details-grid">
-            <div className="product-image-container">
-              <img src="images/products/RE4OG.jpg" />
-            </div>
-
-            <div className="product-details">
-              <div className="product-name">
-                Resident Evil 4
-              </div>
-              <div className="product-delivery-date">
-                Arriving on: June 17
-              </div>
-              <div className="product-quantity">
-                Quantity: 2
-              </div>
-              <button className="buy-again-button button-primary">
-                <img className="buy-again-icon" src="images/icons/buy-again.png" />
-                <span className="buy-again-message">Add to Cart</span>
-              </button>
-            </div>
-
-            <div className="product-actions">
-              <a href="/tracking">
-                <button className="track-package-button button-secondary">
-                  Track package
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
-    </div>
-</>
-
- )
+    </>
+  );
 }

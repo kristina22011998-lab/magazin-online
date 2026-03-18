@@ -1,15 +1,24 @@
-/* Light theme */
-.light {
-  --background: #ffffff;
-  --text: #000000;
+/* Dark theme (your current site colors) */
+.app.dark-theme {
+  --bg-color: #202036;         /* background */
+  --text-color: aliceblue;     /* text */
+  --primary-color: #6c5ce7;    /* buttons, highlights, etc. */
 }
 
-/* Dark theme */
-.dark {
-  --background: #1e1e1e;
-  --text: #ffffff;
+/* Light theme (new colors you want) */
+.app.light-theme {
+  --bg-color: #d3d3d3;
+  --text-color: #222222;
 }
 
+.app {
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
 .Toastify__toast--success {
   background-color: #202036;
   color: aliceblue;

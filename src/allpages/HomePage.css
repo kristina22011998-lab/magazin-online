@@ -1,5 +1,7 @@
 .home-page {
-  background-color: #0d0b27;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
   min-height: 100vh;
   width: 100%;
   color: aliceblue;
@@ -92,6 +94,8 @@ padding: 6px 10px;
 }
 
 *.home-page .product-container {
+  background-color: var(--card-bg);
+  color: var(--text-color);
   padding-top: 40px;
   padding-bottom: 25px;
   padding-left: 25px;

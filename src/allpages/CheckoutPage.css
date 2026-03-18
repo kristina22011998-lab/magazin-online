@@ -1,6 +1,6 @@
 .checkout-page {
-   min-height: 100vh;
-
+  min-height: 100vh;
+margin-top: 400px;
   max-width: 1100px;
   padding-left: 30px;
   padding-right: 30px;
@@ -9,6 +9,9 @@
   color: #ffffff;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid #a29bfe;
+  border-radius: 4px;
+  padding: 18px;
 }
 
 .checkout-page .page-title {
@@ -16,40 +19,26 @@
   font-size: 22px;
   margin-bottom: 18px;
   color: #ffffff;
+ text-align: start;
 }
 
-.checkout-page .checkout-grid {
-  display: grid;
-  grid-template-columns: 1fr 350px;
-  column-gap: 12px;
-  align-items: start;
-  
-}
 
 @media (max-width: 1000px) {
   .checkout-page .main {
     max-width: 500px;
   }
 
-  .checkout-page .checkout-grid {
-    grid-template-columns: 1fr;
-  }
+  
 }
-
+/* ---okvir oko summary---- */
 .checkout-page .cart-item-container,
 .checkout-page .payment-summary {
   border: 1px solid #a29bfe;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 18px;
+
 }
 
-.checkout-page .cart-item-container {
-  margin-bottom: 12px;
-}
-
-.checkout-page .payment-summary {
-  padding-bottom: 5px;
-}
 
 @media (max-width: 1000px) {
   .checkout-page .payment-summary {
@@ -59,20 +48,7 @@
   }
 }
 
-.checkout-page .delivery-date {
-  color: rgb(255, 255, 255);
-  font-weight: 700;
-  font-size: 19px;
-  margin-top: 5px;
-  margin-bottom: 22px;
-}
 
-.checkout-page .cart-item-details-grid {
-  display: grid;
-
-  grid-template-columns: 100px 1fr 1fr;
-  column-gap: 25px;
-}
 
 @media (max-width: 1000px) {
   .checkout-page .cart-item-details-grid {
@@ -81,41 +57,55 @@
   }
 }
 
-.checkout-page .product-image {
-  max-width: 100%;
-  max-height: 120px;
+@media (max-width: 1000px) {}
 
-  /* margin-left: auto;
-     margin-right auto;
-     Is a trick for centering an element horizontally
-     without needing a container. */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.checkout-page .product-name {
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.checkout-page .product-price {
-
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.checkout-page .product-quantity .link-primary {
-  margin-left: 3px;
-  /* ---update i delete boja--- */
-  color: #a29bfe;
-}
-
-@media (max-width: 1000px) {
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  gap:5px;
+  margin: 10px 0;
+  background: #1a1a2e; /* Dark background so the glow shows up */
+  border-radius: 10px;
+  color: white;
   
 }
 
+.item-info {
+  flex: 1; /* This pushes buttons to the right */
+}
+
+.cart-item button:not(.heart-button) {
+  border-radius: 20px;
+  background-color: #a29bfe;
+  border: 1px solid #241f6b;
+  box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
+  color: white;
+  padding: 4px 8px;
+  margin: 2px;
+  font-size: 12px;
+  cursor: pointer;
+}
 
 
+/* This targets the buttons specifically */
+.cart-item button {
+  border-radius: 18px;
+  background-color: #800707;
+  border: 1px solid #640000;
+  box-shadow: 0 0 20px #ff0000, inset 0 0 4px #470a0a;
+  color: white;
+
+  padding: 4px 8px;   /* smaller buttons */
+  font-size: 12px;    /* smaller text */
+  margin: 2px;        /* less space between buttons */
+  
+  cursor: pointer;
+
+  
+
+}
 
 .checkout-page .payment-summary-title {
   font-weight: 700;
@@ -125,25 +115,12 @@
 
 .checkout-page .payment-summary-row {
   display: grid;
-  /* 1fr auto; means the width of the 2nd column will be
-     determined by the elements inside the column (auto).
-     The 1st column will take up the remaining space. */
-  grid-template-columns: 1fr auto;
-
   font-size: 15px;
   margin-bottom: 9px;
 }
 
 .checkout-page .payment-summary-money {
   text-align: right;
-}
-
-.checkout-page .subtotal-row .payment-summary-money {
-  border-top: 1px solid #a29bfe;
-}
-
-.checkout-page .subtotal-row div {
-  padding-top: 9px;
 }
 
 .checkout-page .total-row {
@@ -154,16 +131,18 @@
 
   border-top: 1px solid #a29bfe;
   padding-top: 18px;
+
 }
 
 .checkout-page .place-order-button {
   width: 100%;
   padding-top: 12px;
   padding-bottom: 12px;
-  
+color: #ffffff;
   border-radius: 5px;
   background-color: #a29bfe;
-  border: 1px solid #241f6b; /* A slightly darker purple border for depth */
+  border: 1px solid #241f6b;
+  /* A slightly darker purple border for depth */
   box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
   margin-top: 20px;
   margin-bottom: 19px;

@@ -1,21 +1,4 @@
-:root {
-  /* Light Mode Colors */
-  --main-bg-color: #d3d3d3; 
-  --text-color: #000000;
-}
 
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  /* We use background-color: inherit or target the div specifically */
-  background-color: #d3d3d3; /* Default light */
-}
-
-/* When the app is dark, make the body match */
-body:has(.dark-theme) {
-  background-color: #1E1F3A;
-}
 
 .cancel-button {
   background: none;
@@ -25,8 +8,10 @@ body:has(.dark-theme) {
   border-radius: 4px;
   cursor: pointer;
   font-size: 12px;
-  margin-top: 5px;
-  transition: all 0.2s;
+  margin-top: 10px;
+  
+  margin-left: 859px;
+  margin-bottom: 10px;
 }
 
 .cancel-button:hover {
@@ -36,20 +21,23 @@ body:has(.dark-theme) {
 }
 
 .orders-page {
-  max-width: 850px;
+  max-width: 950px;
+  max-height: 400vh;
   /* -odvajam gore i dole kontejner-- */
   margin-top: 90px;
   margin-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 40px;
   background-color: rgb(21, 0, 39);
   color: rgb(255, 255, 255);
   /* margin-left: auto;
      margin-right auto;
-     Is a trick for centering an element horizontally
+     a trick for centering an element horizontally
      without needing a container. */
   margin-left: auto;
   margin-right: auto;
+  border-radius: 20px;
   
 }
 
@@ -142,11 +130,9 @@ body:has(.dark-theme) {
   border-bottom-right-radius: 5px;
   box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
 
-  display: grid;
-  grid-template-columns: 110px 1fr 220px;
-  column-gap: 35px;
-  row-gap: 60px;
-  align-items: center;
+  display: inline-block;
+  
+  
 }
 
 @media (max-width: 800px) {
@@ -171,53 +157,48 @@ body:has(.dark-theme) {
 .orders-page .product-image-container img {
   max-width: 110px;
   max-height: 110px;
+  margin-right: 14px;
 }
 
-.orders-page .product-name {
+/* .orders-page .product-name {
   font-weight: 700;
   margin-bottom: 5px;
-}
+} */
 
-.orders-page .product-delivery-date {
-  margin-bottom: 3px;
-}
 
-.orders-page .product-quantity {
+
+/* .orders-page .product-quantity {
   margin-bottom: 8px;
-}
+} */
 
 .orders-page .buy-again-button {
   font-size: 14px;
-  width: 140px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  margin-left: 35px;
+  width: 100px;
   height: 36px;
  /* ----boja, senka, sjaj gumeta add to cart--- */
-  border-radius: 5px;
+  border-radius: 20px;
   background-color: #a29bfe;
   box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
   color: #ffffff;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  
 }
 
-.orders-page .buy-again-icon {
-  width: 20px;
-  margin-right: 10px;
-}
 
-.orders-page .product-actions {
-  align-self: start;
-}
 
 .orders-page .track-package-button {
   width: 100%;
+margin-top: 30px;
+margin-bottom: 30px;
   font-size: 14px;
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 45px;
   background-color: #a29bfe;
   box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
   color: #ffffff;
+
 }
 
 @media (max-width: 800px) {
@@ -225,15 +206,7 @@ body:has(.dark-theme) {
     margin-bottom: 10px;
   }
 
-  .orders-page .product-actions {
   
-    grid-column: 2;
-    margin-bottom: 30px;
-  }
-
-  .orders-page .track-package-button {
-    width: 140px;
-  }
 }
 
 @media (max-width: 450px) {
@@ -242,34 +215,6 @@ body:has(.dark-theme) {
     margin-bottom: 25px;
   }
 
-  .orders-page .product-image-container img {
-    max-width: 150px;
-    max-height: 150px;
-  }
 
-  .orders-page .product-name {
-    margin-bottom: 10px;
-  }
-
-  .orders-page .product-quantity {
-    margin-bottom: 15px;
-  }
-
-  .orders-page .buy-again-button {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-
-  .orders-page .product-actions {
-    /* grid-column: auto; undos grid-column: 2; from above.
-      This element will now be placed in its normal column
-      in the grid. */
-    grid-column: auto;
-    margin-bottom: 70px;
-  }
-
-  .orders-page .track-package-button {
-    width: 100%;
-    padding: 12px;
-  }
+ 
 }

@@ -5,7 +5,7 @@ import { Header } from '../components/Header';
 import Heart from './Heart';
  
 
-export function CheckoutPage({cart, setCart, orders, setOrders, notify, theme, toggleTheme }) {
+export function CheckoutPage({cart, setCart, orders, setOrders, theme, toggleTheme }) {
 
   const increaseQuantity = (id) => {
     setCart(cart.map(item => item.id === id ? {...item, quantity: item.quantity + 1 } : item));
@@ -27,15 +27,15 @@ export function CheckoutPage({cart, setCart, orders, setOrders, notify, theme, t
   if (cart.length === 0) return;
 
   const newOrder = {
-    id: Date.now().toString(), // simple unique ID
+    id: Date.now().toString(), 
     date: new Date().toLocaleDateString(),
     total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
     items: [...cart],
   };
 
-  setOrders((prev) => [...prev, newOrder]); // add to orders
-  setCart([]); // empty the cart
-  notify(); // success toast
+  setOrders((prev) => [...prev, newOrder]); 
+  setCart([]); 
+  
 };
 
   return (
@@ -69,7 +69,9 @@ export function CheckoutPage({cart, setCart, orders, setOrders, notify, theme, t
     <button onClick={() => increaseQuantity(item.id)}>+</button>
     <button onClick={() => decreaseQuantity(item.id)}>-</button>
     <button onClick={() => deleteGame(item.id)}>Delete</button>
+    
     <Heart itemId={item.id} />
+    
   </div>
 ))
       )}

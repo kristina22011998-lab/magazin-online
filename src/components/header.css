@@ -191,3 +191,17 @@
   width: 26px;
   text-align: center;
 }
+
+.header .wishlist {
+border-radius: 30px;
+text-decoration: none;
+padding: 8px 14px;
+background-color: #a29bfe;
+color: #ffffff;
+cursor: pointer;
+box-shadow: 0 0 35px #6c5ce7, inset 0 0 5px #6c5ce7;
+transition: all 0.3s ease;
+margin-right: 15px;
+margin-left: -15px;
+}
+

@@ -3,11 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import { HomePage } from "./allpages/HomePage";
 import { CheckoutPage } from "./allpages/CheckoutPage";
 import { OrdersPage } from "./allpages/OrdersPage";
-import { TrackingPage } from "./allpages/TrackingPage";
+
 import { Header } from "./components/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import { WishlistPage } from "./WishlistPage";
 
 export default function App() {
   const [theme, setTheme] = useState("dark"); // default theme
@@ -31,18 +32,19 @@ export default function App() {
     localStorage.setItem("orders", JSON.stringify(orders));
   }, [cart, orders]);
 
+
   const toggleTheme = () => setTheme((prev) => (prev === "dark" ? "light" : "dark"));
 
   const notify = () => toast.success("Successfully added to cart!");
 
   return (
     <div className={`app ${theme}-theme`}>
-      {/* Theme toggle button */}
+      
       <button className="theme-toggle" onClick={toggleTheme}>
         {theme === "dark" ? "🌞" : "🌙"}
       </button>
 
-      {/* Header */}
+      
       <Header
         cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
         searchQuery={searchQuery}
@@ -51,10 +53,10 @@ export default function App() {
         toggleTheme={toggleTheme}
       />
 
-      {/* Toast notifications */}
+      
       <ToastContainer position="top-right" autoClose={1000} />
 
-      {/* Routes */}
+      
       <Routes>
         <Route
           index
@@ -71,23 +73,15 @@ export default function App() {
           }
         />
         <Route
-          path="checkout"
-          element={
-            <CheckoutPage
-              cart={cart}
-              setCart={setCart}
-              orders={orders}
-              setOrders={setOrders}
-              notify={notify}
-            />
-          }
+          path="checkout" element={<CheckoutPage cart={cart} setCart={setCart} orders={orders} setOrders={setOrders} notify={notify} theme={theme} toggleTheme={toggleTheme} />}
         />
-        <Route
-  path="orders"
-  element={<OrdersPage orders={orders} setOrders={setOrders} cart={cart} setCart={setCart} notify={notify} theme={theme}
+        <Route path="orders" element={<OrdersPage orders={orders} setOrders={setOrders} cart={cart} setCart={setCart} notify={notify} theme={theme}
       toggleTheme={toggleTheme} />}
 />
-        <Route path="tracking" element={<TrackingPage />} />
+        
+        <Route path="wishlist" element={<WishlistPage cart={cart} 
+      setCart={setCart} 
+      notify={notify} />} />
       </Routes>
     </div>
   );

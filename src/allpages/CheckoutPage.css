@@ -69,7 +69,8 @@ margin-top: 400px;
   background: #1a1a2e; /* Dark background so the glow shows up */
   border-radius: 10px;
   color: white;
-  
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .item-info {

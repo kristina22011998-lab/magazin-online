@@ -10,6 +10,8 @@ export function Header({ cartCount, searchQuery, setSearchQuery, theme, toggleTh
         </Link>
       </div>
 
+<Link to="/wishlist" className="wishlist">Wishlist</Link>
+
       <div className="middle-section">
         <input
           className="search-bar"

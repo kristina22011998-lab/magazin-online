@@ -4,6 +4,7 @@ import { products } from "../products.js";
 import "./HomePage.css";
 import LeonPopup from "./LeonPopup";
 import { useWishlistStore } from "../useWishlistStore";
+import { Link } from "react-router";
 
 export function HomePage({ cart, setCart, notify, theme, toggleTheme }) {
   const [quantities, setQuantities] = useState({});
@@ -49,7 +50,7 @@ export function HomePage({ cart, setCart, notify, theme, toggleTheme }) {
     setTimeout(() => setShowLeon(false), 2500);
   };
 
-  // FILTER
+  
   const queryWords = searchQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
 
   let visibleProducts = products.filter((product) => {
@@ -127,13 +128,13 @@ export function HomePage({ cart, setCart, notify, theme, toggleTheme }) {
                   {isSaved ? "❤️" : "💔"}
                 </button>
 
-                <div className="product-image-container">
+                <Link to={`/product/${product.id}`}>
                   <img
                     className="product-image"
                     src={product.image}
                     alt={product.name}
                   />
-                </div>
+                </Link>
 
                 <div className="product-name limit-text-to-2-lines">
                   {product.name}

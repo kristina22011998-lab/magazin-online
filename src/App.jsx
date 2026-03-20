@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { HomePage } from "./allpages/HomePage";
 import { CheckoutPage } from "./allpages/CheckoutPage";
 import { OrdersPage } from "./allpages/OrdersPage";
-
+import { ProductPage } from "./game-pages/ProductPage";
 import { Header } from "./components/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,19 +14,19 @@ export default function App() {
   const [theme, setTheme] = useState("dark"); // default theme
   const [searchQuery, setSearchQuery] = useState(""); // search state
  
-  // CART
+ 
   const [cart, setCart] = useState(() => {
     const stored = localStorage.getItem("cart");
     return stored ? JSON.parse(stored) : [];
   });
 
-  // ORDERS
+ 
   const [orders, setOrders] = useState(() => {
     const stored = localStorage.getItem("orders");
     return stored ? JSON.parse(stored) : [];
   });
 
-  // Save cart and orders to localStorage
+  
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
     localStorage.setItem("orders", JSON.stringify(orders));
@@ -82,7 +82,22 @@ export default function App() {
         <Route path="wishlist" element={<WishlistPage cart={cart} 
       setCart={setCart} 
       notify={notify} />} />
+
+<Route
+    path="product/:id"
+    element={
+      <ProductPage
+        cart={cart}
+        setCart={setCart}
+        theme={theme}
+        toggleTheme={toggleTheme}
+        notify={notify}
+      /> } />
+
+
       </Routes>
+
+ 
     </div>
   );
 }

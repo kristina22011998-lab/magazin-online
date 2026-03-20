@@ -64,6 +64,14 @@ export function ProductPage({ cart, setCart, theme, toggleTheme, notify }) {
       />
     </div>
   )}
+  <div className="add-to-cart-container">
+          <button
+            className="add-to-cart-btn button-primary"
+            onClick={handleAddToCart}
+          >
+            Add to Cart
+          </button>
+        </div>
         {/* Top section: Cover + Description */}
         <div className="product-main">
           <div className="product-description-section">
@@ -93,20 +101,7 @@ export function ProductPage({ cart, setCart, theme, toggleTheme, notify }) {
           </div>
         </div>
 
-        {/* Video section */}
-        {product.youtube && (
-          <div className="product-video">
-            <iframe
-              width="100%"
-              height="480"
-              src={product.youtube}
-              title={product.name + " trailer"}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        )}
+        
 
         {/* Screenshots */}
         {product.screenshots && (
@@ -121,8 +116,39 @@ export function ProductPage({ cart, setCart, theme, toggleTheme, notify }) {
             ))}
           </div>
         )}
+  {/* ---eextra text---- */}
+<div className="product-extra-text">
+          {product.extraText && <p>{product.extraText}</p>}
+        </div>
 
-        {/* Lightbox */}
+
+{/* Video section */}
+        {product.youtube && (
+          <div className="product-video">
+            <iframe
+              width="100%"
+              height="480"
+              src={product.youtube}
+              title={product.name + " trailer"}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
+
+<div className="play-container">
+  <button
+    className="play-button"
+  >
+    {product.id.startsWith("res-evil-")
+      ? "Face the horror. Play me!"
+      : "Play me!"}
+  </button>
+</div>
+      
+    
+        
         {lightbox.open && (
           <div
             className="lightbox"
@@ -132,20 +158,11 @@ export function ProductPage({ cart, setCart, theme, toggleTheme, notify }) {
           </div>
         )}
 
-        {/* Additional Text Section */}
-        <div className="product-extra-text">
-          {product.extraText && <p>{product.extraText}</p>}
-        </div>
+       
+        
 
-        {/* Add to Cart Button */}
-        <div className="add-to-cart-container">
-          <button
-            className="add-to-cart-btn button-primary"
-            onClick={handleAddToCart}
-          >
-            Add to Cart
-          </button>
-        </div>
+      
+        
       </div>
     </>
   );

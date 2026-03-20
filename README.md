@@ -1,16 +1,79 @@
-# React + Vite
+-Cerințe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Asigură-te că ai instalate:
 
-Currently, two official plugins are available:
+Node.js (recomandat versiunea LTS)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+npm sau yarn
 
-## React Compiler
+Verifică:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+node -v
+npm -v
 
-## Expanding the ESLint configuration
+-Instalare
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Clonează proiectul sau descarcă arhiva, apoi rulează:
+
+npm install
+
+sau, dacă folosești yarn:
+
+yarn
+
+-Rulare în modul development
+
+Pentru a porni aplicația local:
+
+npm run dev
+
+sau:
+
+yarn dev
+
+-Aplicația va fi disponibilă la:
+
+http://localhost:5173
+
+ Build pentru producție
+
+-Pentru a genera versiunea optimizată:
+
+npm run build
+
+sau:
+
+yarn build
+
+Fișierele vor fi generate în folderul:
+
+dist/
+
+
+Pentru a testa build-ul local:
+
+npm run preview
+🧹 Linting
+
+Pentru verificarea codului:
+
+npm run lint
+⚙️ Tehnologii folosite
+
+React
+
+Vite
+
+ESLint
+
+-Note
+
+HMR (Hot Module Replacement) este activ implicit.
+
+Poți alege între pluginurile React bazate pe SWC sau Oxc.
+
+Pentru proiecte mai complexe, este recomandată integrarea TypeScript.
+
+-Autor
+
+Milanovic Kristina

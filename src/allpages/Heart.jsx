@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./heart.css";
+import "./Heart.css";
 
 function Heart() {
   const [hearts, setHearts] = useState([]);
